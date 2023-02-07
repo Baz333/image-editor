@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.HelloController">
+   <children>
+      <MenuBar fx:id="menuBar" layoutY="8.0" prefHeight="26.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabPane" layoutX="1.0" layoutY="34.0" prefHeight="364.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Image">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imageView" fitHeight="254.0" fitWidth="417.0" layoutX="92.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <Slider fx:id="opacitySlider" layoutX="14.0" layoutY="298.0" max="1.0" onMouseDragged="#OnOpacitySliderDragged" prefHeight="14.0" prefWidth="114.0" value="1.0" />
+                        <Slider fx:id="hueSlider" layoutX="166.0" layoutY="298.0" max="360.0" onMouseDragged="#OnHSBSliderDragged" />
+                        <Slider fx:id="satSlider" layoutX="306.0" layoutY="298.0" max="3.0" onMouseDragged="#OnHSBSliderDragged" value="1.0" />
+                        <Slider fx:id="brightSlider" layoutX="446.0" layoutY="298.0" max="3.0" onMouseDragged="#OnHSBSliderDragged" value="1.0" />
+                        <Label layoutX="51.0" layoutY="312.0" text="Opacity" />
+                        <Label layoutX="225.0" layoutY="312.0" text="Hue" />
+                        <Label layoutX="348.0" layoutY="312.0" text="Saturation" />
+                        <Label layoutX="488.0" layoutY="312.0" text="Brightness" />
+                        <Button layoutX="31.0" layoutY="128.0" mnemonicParsing="false" onAction="#OnSaveButton" text="Save" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Channels">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="greyChannel" fitHeight="161.0" fitWidth="288.0" layoutX="12.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="redChannel" fitHeight="161.0" fitWidth="288.0" layoutX="300.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="greenChannel" fitHeight="161.0" fitWidth="288.0" layoutX="12.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="blueChannel" fitHeight="161.0" fitWidth="288.0" layoutX="300.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Histogram">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="greyHistogram" barGap="0.0" layoutX="16.0" layoutY="14.0" prefHeight="138.0" prefWidth="567.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="rgbHistogram" barGap="0.0" layoutX="16.0" layoutY="164.0" prefHeight="138.0" prefWidth="567.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Details">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="detailsLabel" layoutX="14.0" layoutY="14.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
